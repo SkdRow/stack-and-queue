@@ -16,11 +16,78 @@
 * 4) Operações Com Fila em Vetor
 * a)Inserção de um atendimento na Fila
 * b)Remoção de um atendimento na Fila, mostrando os    * dados do elemento removido
+*
+* 5) Finalizar programa
 */
 
+//Declaração das estruturas
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct{
+  int dia, mes, ano;
+}DATA;
+
+typedef struct{
+  int hora, minuto, segundo;
+}HORARIO;
+
+typedef struct{
+  DATA data;
+  HORARIO horario;
+  char nome[20], sintomas[100], prescricao[100];
+}ATENDIMENTO;
+//Fim da declaração
+
+//Pilha encadeada
+struct Pilha{
+  ATENDIMENTO at;
+  struct Pilha *proximo;
+}*inicio;
+
+//inserir atendimento na pilha encadeada
+void pushPilha(){
+
+}
+
+void menu(int *);
 
 int main(void) {
-  printf("Hello World\n");
+  inicio = NULL;
+
+  int op;
+  char op2;
+  do{
+    menu(&op);
+    switch(op){
+      case 1:
+        printf("a) Inserir um atendimento na fila.\n");
+        printf("b) Remover um atendimento da fila.\n");
+        scanf("%c", &op2);
+        if(op2 == 'a')
+        break;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        printf("Finalizando...\n");
+        break;
+    }
+  }while(op != 5);
   return 0;
+} 
+
+void menu(int *p){
+  printf("OPERACOES QUE PODEM SER REALIZADAS:\n\n");
+  printf("1 - Operações com pilha encadeada. \n");
+  printf("2 - Operações com fila encadeada. \n");
+  printf("3 - Operações com pilha em vetor. \n");
+  printf("4 - Operações com fila em vetor. \n");
+  printf("5 - Finalizar. \n");
+  printf("Digite a opção desejada: ");
+  scanf("%d", &(*p));
 }
