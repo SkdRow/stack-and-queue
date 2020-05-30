@@ -23,6 +23,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define MAXSTACK 100
+#define MAXQUEUE 100
 
 /* Declaração das estruturas que armazenam os valores
    que serão inseridos nas filas e pilhas */
@@ -44,10 +46,15 @@ typedef struct{
 /* */
 
 //Pilha encadeada
-struct Pilha{
-  ATENDIMENTO at;
-  struct Pilha *proximo;
+struct PilhaE{
+  ATENDIMENTO item;
+  struct PilhaE *proximo;
 }*inicio;
+
+struct PilhaV{
+  int top;
+  ATENDIMENTO items[MAXSTACK];
+};
 
 //Fila encadeada
 //Pilha em vetor
@@ -62,8 +69,6 @@ void inserirPilhaVetor();
 ATENDIMENTO removerPilhaVetor();
 void inserirFilaVetor();
 ATENDIMENTO removerFilaVetor();
-
-//inserir atendimento na pilha encadeada
 
 void menu(int *);
 void subItem1(char *);
@@ -128,16 +133,16 @@ void subItem2(char *s){
 
 /*void subItem3(char *s){
   do{
-    printf("a) Inserir um atendimento na pilha.\n");
-    printf("b) Remover um atendimento da pilha.\n");
+    printf("a) Inserir um atendimento na pilha vetorial.\n");
+    printf("b) Remover um atendimento da pilha vetorial.\n");
     scanf(" %c", &(*s));
   }while(*s != 'a' && *s != 'b'); 
 }
 
 void subItem4(char *s){
   do{
-    printf("a) Inserir um atendimento na fila.\n");
-    printf("b) Remover um atendimento da fila.\n");
+    printf("a) Inserir um atendimento na fila vetorial.\n");
+    printf("b) Remover um atendimento da fila vetorial.\n");
     scanf(" %c", &(*s));
   }while(*s != 'a' && *s != 'b'); 
 }*/
