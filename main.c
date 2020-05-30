@@ -20,11 +20,12 @@
 * 5) Finalizar programa
 */
 
-//Declaração das estruturas
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/* Declaração das estruturas que armazenam os valores
+   que serão inseridos nas filas e pilhas */
 typedef struct{
   int dia, mes, ano;
 }DATA;
@@ -40,18 +41,35 @@ typedef struct{
 }ATENDIMENTO;
 //Fim da declaração
 
+/* */
+
 //Pilha encadeada
 struct Pilha{
   ATENDIMENTO at;
   struct Pilha *proximo;
 }*inicio;
 
-//inserir atendimento na pilha encadeada
-void pushPilha(){
+//Fila encadeada
+//Pilha em vetor
+//Fila em vetor
 
-}
+/* protótipo das funções realizadas */
+void inserirPilhaEncadeada();
+ATENDIMENTO removerPilhaEncadeada();
+void inserirFilaEncadeada();
+ATENDIMENTO removerFilaEncadeada();
+void inserirPilhaVetor();
+ATENDIMENTO removerPilhaVetor();
+void inserirFilaVetor();
+ATENDIMENTO removerFilaVetor();
+
+//inserir atendimento na pilha encadeada
 
 void menu(int *);
+void subItem1(char *);
+void subItem2(char *);
+void subItem3(char *);
+void subItem4(char *);
 
 int main(void) {
   inicio = NULL;
@@ -62,16 +80,16 @@ int main(void) {
     menu(&op);
     switch(op){
       case 1:
-        printf("a) Inserir um atendimento na fila.\n");
-        printf("b) Remover um atendimento da fila.\n");
-        scanf("%c", &op2);
-        if(op2 == 'a')
+        subItem1(&op2);
         break;
       case 2:
+        subItem2(&op2);
         break;
       case 3:
+        subItem1(&op2);
         break;
       case 4:
+        subItem2(&op2);
         break;
       case 5:
         printf("Finalizando...\n");
@@ -91,3 +109,35 @@ void menu(int *p){
   printf("Digite a opção desejada: ");
   scanf("%d", &(*p));
 }
+
+void subItem1(char *s){
+  do{
+    printf("a) Inserir um atendimento na pilha.\n");
+    printf("b) Remover um atendimento da pilha.\n");
+    scanf(" %c", &(*s));
+  }while(*s != 'a' && *s != 'b'); 
+}
+
+void subItem2(char *s){
+  do{
+    printf("a) Inserir um atendimento na fila.\n");
+    printf("b) Remover um atendimento da fila.\n");
+    scanf(" %c", &(*s));
+  }while(*s != 'a' && *s != 'b'); 
+}
+
+/*void subItem3(char *s){
+  do{
+    printf("a) Inserir um atendimento na pilha.\n");
+    printf("b) Remover um atendimento da pilha.\n");
+    scanf(" %c", &(*s));
+  }while(*s != 'a' && *s != 'b'); 
+}
+
+void subItem4(char *s){
+  do{
+    printf("a) Inserir um atendimento na fila.\n");
+    printf("b) Remover um atendimento da fila.\n");
+    scanf(" %c", &(*s));
+  }while(*s != 'a' && *s != 'b'); 
+}*/
